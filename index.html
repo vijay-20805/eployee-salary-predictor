@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Salary Prediction</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .result { margin-top: 20px; padding: 15px; background: #f0f8ff; border-radius: 8px; }
+        .metrics { margin-top: 20px; padding: 10px; background: #e8f5e9; border-radius: 8px; }
+    </style>
+</head>
+<body>
+    <h1>Employee Salary Prediction</h1>
+    <form method="post">
+        <label for="name">Employee Name:</label>
+        <input type="text" name="name" required><br><br>
+        <label for="department">Department:</label>
+        <input type="text" name="department" required><br><br>
+        <label for="location">Location:</label>
+        <input type="text" name="location" required><br><br>
+        <label for="years_exp">Years of Experience:</label>
+        <input type="number" step="0.1" name="years_exp" required><br><br>
+        <input type="submit" value="Predict Salary">
+    </form>
+    
+    {% if metrics %}
+        <div class="metrics">
+            <h3>Model Evaluation Metrics</h3>
+            <ul>
+                <li><strong>R² (Accuracy):</strong> {{ metrics.r2 }}</li>
+                <li><strong>MAE:</strong> {{ metrics.mae }}</li>
+                <li><strong>RMSE:</strong> {{ metrics.rmse }}</li>
+            </ul>
+        </div>
+    {% endif %}
+</body>
+</html>
